@@ -1,0 +1,507 @@
+[
+    {
+        "recipeName": "Lemon Paprika Chicken",
+        "ingredients": ["chicken breast", "garlic", "onions", "olive oil", "paprika", "lemon juice"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Spinach and Cheese Scramble",
+        "ingredients": ["egg", "spinach", "cheddar cheese", "onions", "olive oil"],
+        "mealType": "Breakfast"
+    },
+    {
+        "recipeName": "Coconut Curry Chicken",
+        "ingredients": ["coconut milk", "chicken breast", "curry powder", "rice", "onions", "garlic"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Chickpea Salad",
+        "ingredients": ["chickpeas", "tomato", "cucumber", "parsley", "olive oil", "lemon juice"],
+        "mealType": "Lunch"
+    },
+    {
+        "recipeName": "Avocado Toast",
+        "ingredients": ["avocado", "bread", "olive oil", "salt", "pepper"],
+        "mealType": "Breakfast"
+    },
+    {
+        "recipeName": "Beef Stew",
+        "ingredients": ["beef", "carrots", "onions", "potatoes", "garlic", "rosemary"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Vegan Tofu Stir-fry",
+        "ingredients": ["tofu", "soy sauce", "broccoli", "bell peppers", "garlic", "ginger"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Chicken Caesar Salad",
+        "ingredients": ["chicken breast", "romaine lettuce", "parmesan cheese", "croutons", "caesar dressing"],
+        "mealType": "Lunch"
+    },
+    {
+        "recipeName": "Veggie Soup",
+        "ingredients": ["carrots", "celery", "onions", "potatoes", "vegetable broth", "tomatoes"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Coconut Rice",
+        "ingredients": ["rice", "coconut milk", "salt", "sugar"],
+        "mealType": "Side Dish"
+    },
+    {
+        "recipeName": "Banana Pancakes",
+        "ingredients": ["banana", "egg", "flour", "baking powder", "milk", "butter"],
+        "mealType": "Breakfast"
+    },
+    {
+        "recipeName": "Quinoa Salad",
+        "ingredients": ["quinoa", "tomato", "cucumber", "parsley", "lemon juice", "olive oil"],
+        "mealType": "Lunch"
+    },
+    {
+        "recipeName": "Spaghetti Carbonara",
+        "ingredients": ["spaghetti", "eggs", "bacon", "parmesan cheese", "black pepper"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Grilled Cheese Sandwich",
+        "ingredients": ["bread", "cheddar cheese", "butter"],
+        "mealType": "Lunch"
+    },
+    {
+        "recipeName": "Chicken Quesadilla",
+        "ingredients": ["chicken breast", "flour tortillas", "cheddar cheese", "onions", "bell peppers", "sour cream"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Mac and Cheese",
+        "ingredients": ["macaroni", "cheddar cheese", "milk", "butter", "flour"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Chili",
+        "ingredients": ["ground beef", "kidney beans", "tomatoes", "onions", "chili powder"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Pesto Pasta",
+        "ingredients": ["pasta", "basil", "parmesan cheese", "olive oil", "garlic"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Tofu Scramble",
+        "ingredients": ["tofu", "spinach", "tomato", "onions", "turmeric"],
+        "mealType": "Breakfast"
+    },
+    {
+        "recipeName": "Baked Ziti",
+        "ingredients": ["penne pasta", "tomato sauce", "mozzarella cheese", "parmesan cheese", "ground beef"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Taco Salad",
+        "ingredients": ["ground beef", "lettuce", "cheddar cheese", "tomato", "taco sauce"],
+        "mealType": "Lunch"
+    },
+    {
+        "recipeName": "Chicken Stir-fry",
+        "ingredients": ["chicken breast", "soy sauce", "bell peppers", "carrots", "broccoli"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Sweet Potato Fries",
+        "ingredients": ["sweet potatoes", "olive oil", "salt", "paprika"],
+        "mealType": "Side Dish"
+    },
+    {
+        "recipeName": "Stuffed Bell Peppers",
+        "ingredients": ["bell peppers", "ground beef", "rice", "cheese", "tomato sauce"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Egg Salad",
+        "ingredients": ["eggs", "mayo", "mustard", "onions", "celery"],
+        "mealType": "Lunch"
+    },
+    {
+        "recipeName": "Beef Tacos",
+        "ingredients": ["ground beef", "taco shells", "cheddar cheese", "tomato", "lettuce"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Chicken Alfredo",
+        "ingredients": ["chicken breast", "alfredo sauce", "pasta", "parmesan cheese"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Pulled Pork Sandwich",
+        "ingredients": ["pork shoulder", "bbq sauce", "bread rolls", "coleslaw"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Smoothie Bowl",
+        "ingredients": ["frozen berries", "banana", "yogurt", "granola", "honey"],
+        "mealType": "Breakfast"
+    },
+    {
+        "recipeName": "Shakshuka",
+        "ingredients": ["eggs", "tomato", "onions", "bell peppers", "spices"],
+        "mealType": "Breakfast"
+    },
+    {
+        "recipeName": "Prawn Pasta",
+        "ingredients": ["pasta", "prawns", "garlic", "olive oil", "cherry tomatoes", "parsley"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Beef Stir-fry",
+        "ingredients": ["beef strips", "soy sauce", "bell peppers", "onions", "ginger"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Sweet and Sour Chicken",
+        "ingredients": ["chicken breast", "bell peppers", "pineapple", "soy sauce", "vinegar"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Chicken Fajitas",
+        "ingredients": ["chicken breast", "tortillas", "bell peppers", "onions", "lime"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Veggie Burger",
+        "ingredients": ["black beans", "onions", "breadcrumbs", "egg", "cheddar cheese"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Chicken Tikka Masala",
+        "ingredients": ["chicken breast", "tikka masala sauce", "yogurt", "rice", "garlic"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Grilled Salmon",
+        "ingredients": ["salmon fillets", "olive oil", "lemon", "garlic", "herbs"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Potato Salad",
+        "ingredients": ["potatoes", "mayonnaise", "mustard", "onions", "hard-boiled eggs"],
+        "mealType": "Side Dish"
+    },
+    {
+        "recipeName": "Veggie Tacos",
+        "ingredients": ["taco shells", "avocado", "beans", "lettuce", "tomato"],
+        "mealType": "Lunch"
+    },
+    {
+        "recipeName": "Garlic Bread",
+        "ingredients": ["bread", "butter", "garlic", "parsley"],
+        "mealType": "Side Dish"
+    },
+    {
+        "recipeName": "Chicken Nuggets",
+        "ingredients": ["chicken breast", "breadcrumbs", "egg", "flour", "oil"],
+        "mealType": "Snack"
+    },
+    {
+        "recipeName": "Zucchini Noodles",
+        "ingredients": ["zucchini", "garlic", "olive oil", "parmesan cheese"],
+        "mealType": "Lunch"
+    },
+    {
+        "recipeName": "Pancakes",
+        "ingredients": ["flour", "eggs", "milk", "baking powder", "butter"],
+        "mealType": "Breakfast"
+    },
+    {
+        "recipeName": "Veggie Pizza",
+        "ingredients": ["pizza dough", "tomato sauce", "cheese", "bell peppers", "olives"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Tuna Salad",
+        "ingredients": ["tuna", "mayo", "celery", "onions", "lettuce"],
+        "mealType": "Lunch"
+    },
+    {
+        "recipeName": "Veggie Stir-fry",
+        "ingredients": ["broccoli", "carrots", "bell peppers", "soy sauce", "garlic"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Chicken Parmesan",
+        "ingredients": ["chicken breast", "tomato sauce", "mozzarella cheese", "parmesan cheese", "spaghetti"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Beef and Broccoli",
+        "ingredients": ["beef strips", "broccoli", "soy sauce", "garlic", "rice"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Chicken Pot Pie",
+        "ingredients": ["chicken breast", "potatoes", "peas", "carrots", "pie crust"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Bagels with Cream Cheese",
+        "ingredients": ["bagels", "cream cheese", "smoked salmon", "cucumber"],
+        "mealType": "Breakfast"
+    },
+    {
+        "recipeName": "Bagels with Cream Cheese",
+        "ingredients": ["bagels", "cream cheese", "smoked salmon", "cucumber"],
+        "mealType": "Breakfast"
+    },
+    {
+        "recipeName": "Sweet Potato Casserole",
+        "ingredients": ["sweet potatoes", "marshmallows", "brown sugar", "butter"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Grilled Cheese and Tomato Soup",
+        "ingredients": ["bread", "cheddar cheese", "butter", "tomato soup"],
+        "mealType": "Lunch"
+    },
+    {
+        "recipeName": "Roasted Veggies",
+        "ingredients": ["carrots", "potatoes", "zucchini", "olive oil", "herbs"],
+        "mealType": "Side Dish"
+    },
+    {
+        "recipeName": "Turkey Meatballs",
+        "ingredients": ["ground turkey", "bread crumbs", "egg", "garlic", "parmesan cheese"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Eggplant Parmesan",
+        "ingredients": ["eggplant", "tomato sauce", "mozzarella cheese", "parmesan cheese", "breadcrumbs"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Veggie Wraps",
+        "ingredients": ["tortilla wraps", "hummus", "spinach", "carrots", "avocado"],
+        "mealType": "Lunch"
+    },
+    {
+        "recipeName": "Spicy Tofu Stir-fry",
+        "ingredients": ["tofu", "soy sauce", "sriracha", "carrots", "broccoli"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Mushroom Risotto",
+        "ingredients": ["arborio rice", "mushrooms", "parmesan cheese", "vegetable broth", "onions"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Chicken and Rice Casserole",
+        "ingredients": ["chicken breast", "rice", "cream of mushroom soup", "cheddar cheese"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Fruit Salad",
+        "ingredients": ["apple", "banana", "grapes", "orange", "lemon juice"],
+        "mealType": "Snack"
+    },
+    {
+        "recipeName": "Beef Empanadas",
+        "ingredients": ["ground beef", "empanada dough", "onions", "garlic", "egg"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Baked Potatoes",
+        "ingredients": ["potatoes", "butter", "cheddar cheese", "sour cream"],
+        "mealType": "Side Dish"
+    },
+    {
+        "recipeName": "Shredded Chicken Tacos",
+        "ingredients": ["chicken breast", "taco shells", "cheddar cheese", "lettuce", "sour cream"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Beef Burritos",
+        "ingredients": ["ground beef", "flour tortillas", "cheddar cheese", "lettuce", "sour cream"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Caesar Salad",
+        "ingredients": ["romaine lettuce", "parmesan cheese", "croutons", "caesar dressing"],
+        "mealType": "Lunch"
+    },
+    {
+        "recipeName": "BBQ Chicken Pizza",
+        "ingredients": ["pizza dough", "bbq sauce", "chicken breast", "cheddar cheese", "onions"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Spaghetti Bolognese",
+        "ingredients": ["spaghetti", "ground beef", "tomato sauce", "onions", "garlic"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Chicken Fried Rice",
+        "ingredients": ["chicken breast", "rice", "peas", "carrots", "soy sauce"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Garlic Parmesan Fries",
+        "ingredients": ["potatoes", "garlic", "parmesan cheese", "olive oil"],
+        "mealType": "Side Dish"
+    },
+    {
+        "recipeName": "Chicken Shawarma",
+        "ingredients": ["chicken thighs", "garlic", "yogurt", "cumin", "paprika"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Cornbread",
+        "ingredients": ["cornmeal", "flour", "sugar", "milk", "egg"],
+        "mealType": "Side Dish"
+    },
+    {
+        "recipeName": "Mushroom and Spinach Pasta",
+        "ingredients": ["pasta", "mushrooms", "spinach", "cream", "parmesan cheese"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Egg and Avocado Toast",
+        "ingredients": ["egg", "avocado", "bread", "olive oil", "salt"],
+        "mealType": "Breakfast"
+    },
+    {
+        "recipeName": "Chicken and Veggie Skewers",
+        "ingredients": ["chicken breast", "bell peppers", "onions", "zucchini", "olive oil"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Meatball Subs",
+        "ingredients": ["meatballs", "sub rolls", "tomato sauce", "mozzarella cheese"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Fried Chicken",
+        "ingredients": ["chicken pieces", "flour", "buttermilk", "paprika", "oil"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Eggplant Stir-fry",
+        "ingredients": ["eggplant", "soy sauce", "garlic", "ginger", "bell peppers"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Veggie Samosas",
+        "ingredients": ["potatoes", "peas", "onions", "spices", "samosa wrappers"],
+        "mealType": "Snack"
+    },
+    {
+        "recipeName": "Beef Tacos",
+        "ingredients": ["ground beef", "taco seasoning", "taco shells", "lettuce", "cheddar cheese"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Tofu Stir-fry with Rice",
+        "ingredients": ["tofu", "soy sauce", "rice", "bell peppers", "broccoli"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Cabbage Stir-fry",
+        "ingredients": ["cabbage", "soy sauce", "ginger", "garlic"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Sweet Potato Hash",
+        "ingredients": ["sweet potatoes", "onions", "bell peppers", "egg", "olive oil"],
+        "mealType": "Breakfast"
+    },
+    {
+        "recipeName": "Shrimp Scampi",
+        "ingredients": ["shrimp", "garlic", "butter", "lemon", "pasta"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Beef Chili",
+        "ingredients": ["ground beef", "beans", "tomato sauce", "onions", "chili powder"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Fish Tacos",
+        "ingredients": ["fish fillets", "taco shells", "avocado", "cabbage", "lime"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Chicken Quesadillas",
+        "ingredients": ["chicken breast", "flour tortillas", "cheddar cheese", "onions", "bell peppers"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Roasted Chicken",
+        "ingredients": ["whole chicken", "garlic", "olive oil", "rosemary", "lemon"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Veggie Lasagna",
+        "ingredients": ["lasagna noodles", "spinach", "ricotta cheese", "tomato sauce", "mozzarella cheese"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Spinach and Artichoke Dip",
+        "ingredients": ["spinach", "artichokes", "cream cheese", "parmesan cheese", "garlic"],
+        "mealType": "Snack"
+    },
+    {
+        "recipeName": "Butternut Squash Soup",
+        "ingredients": ["butternut squash", "onions", "vegetable broth", "cream", "garlic"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Chicken Parmesan",
+        "ingredients": ["chicken breast", "tomato sauce", "mozzarella cheese", "parmesan cheese", "breadcrumbs"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Sloppy Joes",
+        "ingredients": ["ground beef", "sloppy joe sauce", "hamburger buns", "onions", "garlic"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Pulled Pork Sandwiches",
+        "ingredients": ["pork shoulder", "bbq sauce", "buns", "coleslaw"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Pasta Primavera",
+        "ingredients": ["pasta", "zucchini", "bell peppers", "tomatoes", "parmesan cheese"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Greek Salad",
+        "ingredients": ["cucumber", "tomatoes", "red onions", "olives", "feta cheese"],
+        "mealType": "Lunch"
+    },
+    {
+        "recipeName": "Chicken Caesar Wraps",
+        "ingredients": ["chicken breast", "romaine lettuce", "caesar dressing", "tortilla wraps", "parmesan cheese"],
+        "mealType": "Lunch"
+    },
+    {
+        "recipeName": "Minestrone Soup",
+        "ingredients": ["beans", "tomatoes", "carrots", "celery", "vegetable broth"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Vegetable Fried Rice",
+        "ingredients": ["rice", "peas", "carrots", "soy sauce", "eggs"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Zucchini Noodles with Pesto",
+        "ingredients": ["zucchini", "pesto", "parmesan cheese", "olive oil"],
+        "mealType": "Dinner"
+    },
+    {
+        "recipeName": "Chicken Tenders",
+        "ingredients": ["chicken tenders", "flour", "breadcrumbs", "egg", "oil"],
+        "mealType": "Dinner"
+    }
+]
