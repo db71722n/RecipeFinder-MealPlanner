@@ -11,7 +11,7 @@ public class RecipeDatabase {
     }
 
     // Method to load recipes from a JSON file
-    public void loadRecipes(String filePath) {
+    public boolean loadRecipes(String filePath) {
         try (Reader reader = new FileReader(filePath)) {
             JsonArray jsonArray = JsonParser.parseReader(reader).getAsJsonArray();
 
@@ -29,9 +29,11 @@ public class RecipeDatabase {
                 Recipe recipe = new Recipe(name, ingredients, mealType);
                 recipes.add(recipe);
             }
+            return true;
 
         } catch (IOException | JsonSyntaxException e) {
-            e.printStackTrace();
+            System.out.println("Error loading recipes: " + e.getMessage());
+            return false;
         }
     }
 
@@ -42,7 +44,7 @@ public class RecipeDatabase {
 
     // Method to sort recipes by meal type
     public List<Recipe> sortByMealType() {
-        recipes.sort(Comparator.comparing(Recipe::getMealType));
+        recipes.sort(Comparator.comparing(Recipe::getCategory)); // Meal type -> Category
         return recipes;
     }
 
@@ -58,12 +60,14 @@ public class RecipeDatabase {
     }
 
     // Method to save the recipes back to the JSON file
-    public void saveRecipes(String filePath) {
+    public boolean saveRecipes(String filePath) {
         try (Writer writer = new FileWriter(filePath)) {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             gson.toJson(recipes, writer);
+            return true;
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error saving recipes: " + e.getMessage());
+            return false;
         }
     }
 
