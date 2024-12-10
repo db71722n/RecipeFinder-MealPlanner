@@ -1,4 +1,4 @@
-import com.google.gson.*;
+import org.json.*;
 import java.io.*;
 import java.util.*;
 
@@ -10,45 +10,54 @@ public class RecipeDatabase {
         recipes = new ArrayList<>();
     }
 
-    // Method to load recipes from a JSON file
-    public boolean loadRecipes(String filePath) {
-        try (Reader reader = new FileReader(filePath)) {
-            JsonArray jsonArray = JsonParser.parseReader(reader).getAsJsonArray();
+    // Load recipes from JSON file
+    public void loadRecipes(String filePath) {
+        try {
+            // Read the file content
+            FileReader reader = new FileReader(filePath);
+            StringBuilder jsonContent = new StringBuilder();
+            int i;
+            while ((i = reader.read()) != -1) {
+                jsonContent.append((char) i);
+            }
+            reader.close();
 
-            for (JsonElement recipeElement : jsonArray) {
-                JsonObject recipeObject = recipeElement.getAsJsonObject();
-                String name = recipeObject.get("recipeName").getAsString();
-                String mealType = recipeObject.get("mealType").getAsString();
+            // Parse the JSON content
+            JSONArray jsonArray = new JSONArray(jsonContent.toString());
+
+            // Loop through each JSON object (representing a recipe)
+            for (int j = 0; j < jsonArray.length(); j++) {
+                JSONObject recipeObject = jsonArray.getJSONObject(j);
+                String name = recipeObject.getString("recipeName");
+                String category = recipeObject.getString("mealType");
                 Set<String> ingredients = new HashSet<>();
 
-                JsonArray ingredientsArray = recipeObject.getAsJsonArray("ingredients");
-                for (JsonElement ingredientElement : ingredientsArray) {
-                    ingredients.add(ingredientElement.getAsString());
+                // Extract the ingredients array
+                JSONArray ingredientsArray = recipeObject.getJSONArray("ingredients");
+                for (int k = 0; k < ingredientsArray.length(); k++) {
+                    ingredients.add(ingredientsArray.getString(k));
                 }
 
-                Recipe recipe = new Recipe(name, ingredients, mealType);
-                recipes.add(recipe);
+                // Add the new Recipe object to the list
+                recipes.add(new Recipe(name, ingredients, category));
             }
-            return true;
-
-        } catch (IOException | JsonSyntaxException e) {
-            System.out.println("Error loading recipes: " + e.getMessage());
-            return false;
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
         }
     }
 
-    // Method to add a new recipe
+    // Add a new recipe to the database
     public void addRecipe(Recipe recipe) {
         recipes.add(recipe);
     }
 
-    // Method to sort recipes by meal type
-    public List<Recipe> sortByMealType() {
-        recipes.sort(Comparator.comparing(Recipe::getCategory)); // Meal type -> Category
+    // Sort recipes by category (meal type)
+    public List<Recipe> sortByCategory() {
+        recipes.sort(Comparator.comparing(Recipe::getCategory));
         return recipes;
     }
 
-    // Method to filter recipes by an ingredient
+    // Filter recipes by a specific ingredient
     public List<Recipe> filterByIngredient(String ingredient) {
         List<Recipe> filteredRecipes = new ArrayList<>();
         for (Recipe recipe : recipes) {
@@ -59,19 +68,35 @@ public class RecipeDatabase {
         return filteredRecipes;
     }
 
-    // Method to save the recipes back to the JSON file
-    public boolean saveRecipes(String filePath) {
-        try (Writer writer = new FileWriter(filePath)) {
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            gson.toJson(recipes, writer);
-            return true;
-        } catch (IOException e) {
-            System.out.println("Error saving recipes: " + e.getMessage());
-            return false;
+    // Save the recipes back to a JSON file
+    public void saveRecipes(String filePath) {
+        try {
+            JSONArray jsonArray = new JSONArray();
+
+            // Loop through each recipe to convert it into a JSON object
+            for (Recipe recipe : recipes) {
+                JSONObject recipeObject = new JSONObject();
+                recipeObject.put("recipeName", recipe.getName());
+                recipeObject.put("mealType", recipe.getCategory());
+
+                // Add the ingredients as a JSON array
+                JSONArray ingredientsArray = new JSONArray(recipe.getIngredients());
+                recipeObject.put("ingredients", ingredientsArray);
+
+                // Add the recipe object to the JSON array
+                jsonArray.put(recipeObject);
+            }
+
+            // Write the JSON array back to the file
+            FileWriter writer = new FileWriter(filePath);
+            writer.write(jsonArray.toString(4));  // Pretty-print with an indentation of 4 spaces
+            writer.close();
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
         }
     }
 
-    // Get all recipes
+    // Get all recipes (useful for printing)
     public List<Recipe> getRecipes() {
         return recipes;
     }
@@ -84,4 +109,3 @@ public class RecipeDatabase {
         }
         return sb.toString();
     }
-}
