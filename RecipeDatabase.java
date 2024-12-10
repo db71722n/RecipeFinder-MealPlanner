@@ -1,4 +1,3 @@
-import org.json.*;
 import java.io.*;
 import java.util.*;
 
@@ -10,40 +9,62 @@ public class RecipeDatabase {
         recipes = new ArrayList<>();
     }
 
-    // Load recipes from JSON file
+    // Load recipes from the JSON file manually
     public void loadRecipes(String filePath) {
         try {
             // Read the file content
-            FileReader reader = new FileReader(filePath);
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
             StringBuilder jsonContent = new StringBuilder();
-            int i;
-            while ((i = reader.read()) != -1) {
-                jsonContent.append((char) i);
+            String line;
+            while ((line = reader.readLine()) != null) {
+                jsonContent.append(line.trim());
             }
             reader.close();
 
-            // Parse the JSON content
-            JSONArray jsonArray = new JSONArray(jsonContent.toString());
+            // Parse the JSON content (we'll assume it's a simple list of objects)
+            String jsonData = jsonContent.toString();
 
-            // Loop through each JSON object (representing a recipe)
-            for (int j = 0; j < jsonArray.length(); j++) {
-                JSONObject recipeObject = jsonArray.getJSONObject(j);
-                String name = recipeObject.getString("recipeName");
-                String category = recipeObject.getString("mealType");
+            // Remove the starting and ending array brackets
+            jsonData = jsonData.substring(1, jsonData.length() - 1).trim();
+
+            // Split the data by individual recipes (this assumes simple well-formed JSON objects per line)
+            String[] recipesData = jsonData.split("\\},\\{");
+
+            for (String recipeData : recipesData) {
+                // Clean the recipe string (remove curly braces if needed)
+                recipeData = recipeData.replaceAll("^\\{", "").replaceAll("\\}$", "");
+
+                // Parse the recipe name, category, and ingredients
+                String name = extractValue(recipeData, "recipeName");
+                String category = extractValue(recipeData, "mealType");
+
+                // Extract ingredients (simple assumption that ingredients are in square brackets)
+                String ingredientsString = extractValue(recipeData, "ingredients");
                 Set<String> ingredients = new HashSet<>();
-
-                // Extract the ingredients array
-                JSONArray ingredientsArray = recipeObject.getJSONArray("ingredients");
-                for (int k = 0; k < ingredientsArray.length(); k++) {
-                    ingredients.add(ingredientsArray.getString(k));
+                ingredientsString = ingredientsString.substring(1, ingredientsString.length() - 1); // Remove brackets
+                String[] ingredientArray = ingredientsString.split(",");
+                for (String ingredient : ingredientArray) {
+                    ingredients.add(ingredient.trim().replaceAll("^\"|\"$", "")); // Clean quotes and spaces
                 }
 
-                // Add the new Recipe object to the list
+                // Add the recipe to the list
                 recipes.add(new Recipe(name, ingredients, category));
             }
-        } catch (IOException | JSONException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    // Helper method to extract values from the JSON string
+    private String extractValue(String data, String key) {
+        String keyValuePattern = "\"" + key + "\": \"";
+        int startIndex = data.indexOf(keyValuePattern);
+        if (startIndex == -1) {
+            return ""; // Return empty if key not found
+        }
+        startIndex += keyValuePattern.length();
+        int endIndex = data.indexOf("\"", startIndex);
+        return data.substring(startIndex, endIndex);
     }
 
     // Add a new recipe to the database
@@ -68,30 +89,39 @@ public class RecipeDatabase {
         return filteredRecipes;
     }
 
-    // Save the recipes back to a JSON file
+    // Save the recipes back to the JSON file
     public void saveRecipes(String filePath) {
         try {
-            JSONArray jsonArray = new JSONArray();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
+            writer.write("[\n");
 
-            // Loop through each recipe to convert it into a JSON object
-            for (Recipe recipe : recipes) {
-                JSONObject recipeObject = new JSONObject();
-                recipeObject.put("recipeName", recipe.getName());
-                recipeObject.put("mealType", recipe.getCategory());
+            for (int i = 0; i < recipes.size(); i++) {
+                Recipe recipe = recipes.get(i);
+                writer.write("  {\n");
+                writer.write("    \"recipeName\": \"" + recipe.getName() + "\",\n");
+                writer.write("    \"mealType\": \"" + recipe.getCategory() + "\",\n");
 
-                // Add the ingredients as a JSON array
-                JSONArray ingredientsArray = new JSONArray(recipe.getIngredients());
-                recipeObject.put("ingredients", ingredientsArray);
+                // Write ingredients array
+                writer.write("    \"ingredients\": [");
+                Iterator<String> it = recipe.getIngredients().iterator();
+                while (it.hasNext()) {
+                    writer.write("\"" + it.next() + "\"");
+                    if (it.hasNext()) {
+                        writer.write(", ");
+                    }
+                }
+                writer.write("]\n");
 
-                // Add the recipe object to the JSON array
-                jsonArray.put(recipeObject);
+                writer.write("  }");
+                if (i < recipes.size() - 1) {
+                    writer.write(",");
+                }
+                writer.write("\n");
             }
 
-            // Write the JSON array back to the file
-            FileWriter writer = new FileWriter(filePath);
-            writer.write(jsonArray.toString(4));  // Pretty-print with an indentation of 4 spaces
+            writer.write("]");
             writer.close();
-        } catch (IOException | JSONException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -109,3 +139,4 @@ public class RecipeDatabase {
         }
         return sb.toString();
     }
+}
