@@ -63,54 +63,58 @@ public class RecipeFinder {
         // Suggest recipes based on available ingredients using a PriorityQueue
         PriorityQueue<Recipe> suggestedRecipes = suggestRecipes(recipeDatabase, availableIngredients);
 
-        System.out.println("\nSuggested Recipes based on available ingredients:");
-        List<Recipe> suggestedRecipeList = new ArrayList<>();
-        while (!suggestedRecipes.isEmpty()) {
-            Recipe recipe = suggestedRecipes.poll();
-            suggestedRecipeList.add(recipe);
-            System.out.println(suggestedRecipeList.size() + ". " + recipe);
-        }
-
-        // Ask user to select recipes for the meal plan
-        List<Recipe> mealPlan = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("\nPlease select the recipes you'd like to add to your meal plan.");
-        System.out.println("Enter the recipe numbers (comma separated) or type 'done' to finish:");
-
-        while (true) {
-            String input = scanner.nextLine();
-            if (input.equalsIgnoreCase("done")) {
-                break;
+        if (suggestedRecipes.isEmpty()) {
+            System.out.println("I'm sorry. I do not have any recipes for that ingredient.");
+        } else {
+            System.out.println("\nSuggested Recipes based on available ingredients:");
+            List<Recipe> suggestedRecipeList = new ArrayList<>();
+            while (!suggestedRecipes.isEmpty()) {
+                Recipe recipe = suggestedRecipes.poll();
+                suggestedRecipeList.add(recipe);
+                System.out.println(suggestedRecipeList.size() + ". " + recipe);
             }
 
-            String[] selectedIndices = input.split(",");
-            for (String indexStr : selectedIndices) {
-                try {
-                    int index = Integer.parseInt(indexStr.trim()) - 1;
-                    if (index >= 0 && index < suggestedRecipeList.size()) {
-                        mealPlan.add(suggestedRecipeList.get(index));
-                    } else {
-                        System.out.println("Invalid number: " + indexStr);
+            // Ask user to select recipes for the meal plan
+            List<Recipe> mealPlan = new ArrayList<>();
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("\nPlease select the recipes you'd like to add to your meal plan.");
+            System.out.println("Enter the recipe numbers (comma separated) or type 'done' to finish:");
+
+            while (true) {
+                String input = scanner.nextLine();
+                if (input.equalsIgnoreCase("done")) {
+                    break;
+                }
+
+                String[] selectedIndices = input.split(",");
+                for (String indexStr : selectedIndices) {
+                    try {
+                        int index = Integer.parseInt(indexStr.trim()) - 1;
+                        if (index >= 0 && index < suggestedRecipeList.size()) {
+                            mealPlan.add(suggestedRecipeList.get(index));
+                        } else {
+                            System.out.println("Invalid number: " + indexStr);
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input. Please enter numbers separated by commas.");
                     }
-                } catch (NumberFormatException e) {
-                    System.out.println("Invalid input. Please enter numbers separated by commas.");
                 }
             }
-        }
 
-        // Generate a shopping list for missing ingredients
-        Set<String> shoppingList = generateShoppingList(mealPlan, availableIngredients);
+            // Generate a shopping list for missing ingredients
+            Set<String> shoppingList = generateShoppingList(mealPlan, availableIngredients);
 
-        // Display the selected meal plan
-        System.out.println("\nMeal Plan:");
-        for (Recipe recipe : mealPlan) {
-            System.out.println(recipe);
-        }
+            // Display the selected meal plan
+            System.out.println("\nMeal Plan:");
+            for (Recipe recipe : mealPlan) {
+                System.out.println(recipe);
+            }
 
-        // Display shopping list for missing ingredients
-        System.out.println("\nShopping List (missing ingredients):");
-        for (String ingredient : shoppingList) {
-            System.out.println(ingredient);
+            // Display shopping list for missing ingredients
+            System.out.println("\nShopping List (missing ingredients):");
+            for (String ingredient : shoppingList) {
+                System.out.println(ingredient);
+            }
         }
     }
 
@@ -140,10 +144,22 @@ public class RecipeFinder {
         });
 
         for (Recipe recipe : recipeDatabase.values()) {
-            queue.offer(recipe);
+            if (hasMatchingIngredients(recipe, availableIngredients)) {
+                queue.offer(recipe);
+            }
         }
 
         return queue;
+    }
+
+    // Check if a recipe has any matching ingredients
+    public static boolean hasMatchingIngredients(Recipe recipe, Set<String> availableIngredients) {
+        for (String ingredient : recipe.ingredients) {
+            if (availableIngredients.contains(ingredient)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     // Count matching ingredients between a recipe and the available ingredients
