@@ -34,7 +34,8 @@ public class RecipeFinder {
         recipeDatabase.put("French Toast", new Recipe("French Toast", Arrays.asList("bread", "eggs", "milk", "cinnamon", "vanilla extract", "butter", "maple syrup"), "Breakfast"));
         recipeDatabase.put("Breakfast Burrito", new Recipe("Breakfast Burrito", Arrays.asList("flour tortillas", "eggs", "cheese", "sausage", "bell peppers", "onions"), "Breakfast"));
         recipeDatabase.put("Granola Parfait", new Recipe("Granola Parfait", Arrays.asList("granola", "yogurt", "honey", "fresh berries"), "Breakfast"));
-
+        recipeDatabase.put("Bacon Egg and Cheese", new Recipe("Bacon Egg and Cheese", Arryas.asList("bacon", "egg", "cheese", "bagel", "salt", "pepper"), "Breakfast"));
+        
         recipeDatabase.put("Caesar Salad", new Recipe("Caesar Salad", Arrays.asList("romaine lettuce", "Caesar dressing", "croutons", "parmesan cheese", "grilled chicken"), "Lunch"));
         recipeDatabase.put("Chicken Wrap", new Recipe("Chicken Wrap", Arrays.asList("flour tortillas", "grilled chicken", "lettuce", "tomatoes", "cheese", "ranch dressing"), "Lunch"));
         recipeDatabase.put("Tomato Soup", new Recipe("Tomato Soup", Arrays.asList("tomatoes", "garlic", "onion", "vegetable broth", "cream", "basil"), "Lunch"));
@@ -45,6 +46,7 @@ public class RecipeFinder {
         recipeDatabase.put("Vegetarian Burrito", new Recipe("Vegetarian Burrito", Arrays.asList("flour tortillas", "rice", "black beans", "corn", "avocado", "salsa", "lettuce", "cheese"), "Lunch"));
         recipeDatabase.put("Avocado Chicken Salad", new Recipe("Avocado Chicken Salad", Arrays.asList("chicken breast", "avocado", "celery", "lemon", "Greek yogurt", "mustard"), "Lunch"));
         recipeDatabase.put("Falafel", new Recipe("Falafel", Arrays.asList("chickpeas", "garlic", "onions", "parsley", "cumin", "coriander", "tahini"), "Lunch"));
+        recipeDatabase.put("Pepperoni Pizza", new Recipe("Pepporoni Pizza", Arryas.asList("pizza dough", "marinara", "cheese", "pepperoni"), "Lunch"));
 
         recipeDatabase.put("Spaghetti Carbonara", new Recipe("Spaghetti Carbonara", Arrays.asList("spaghetti", "eggs", "pancetta", "parmesan cheese", "black pepper"), "Dinner"));
         recipeDatabase.put("Chicken Alfredo", new Recipe("Chicken Alfredo", Arrays.asList("chicken breast", "pasta", "heavy cream", "garlic", "parmesan cheese", "butter"), "Dinner"));
@@ -56,7 +58,7 @@ public class RecipeFinder {
         recipeDatabase.put("Chicken Parmesan", new Recipe("Chicken Parmesan", Arrays.asList("chicken breast", "marinara sauce", "mozzarella cheese", "parmesan cheese", "breadcrumbs"), "Dinner"));
         recipeDatabase.put("Vegetable Curry", new Recipe("Vegetable Curry", Arrays.asList("mixed vegetables", "coconut milk", "curry powder", "garlic", "onion", "ginger"), "Dinner"));
         recipeDatabase.put("Pork Schnitzel", new Recipe("Pork Schnitzel", Arrays.asList("pork chops", "breadcrumbs", "eggs", "flour", "lemon", "butter"), "Dinner"));
-
+        recipeDatabase.put("Cheeseburger and Fries", new Recipe("Cheeseburger and Fries", Arryas.asList("ground beef", "cheese", "hamburger buns", "onions", "ketchup", "mustard", "french fries"), "Dinner"));
         // user input for available ingredients
         Set<String> availableIngredients = getUserIngredients();
 
