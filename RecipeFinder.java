@@ -76,7 +76,7 @@ public class RecipeFinder {
 
             // Ask user to select recipes for the meal plan
             List<Recipe> mealPlan = new ArrayList<>();
-            Scanner scanner = new Scanner(System.in);
+            Scanner scanner = new Scanner(System.in);  // Declare once and use in main method
             System.out.println("\nPlease select the recipes you'd like to add to your meal plan.");
             System.out.println("Enter the recipe numbers (comma separated) or type 'done' to finish:");
 
@@ -115,13 +115,16 @@ public class RecipeFinder {
             for (String ingredient : shoppingList) {
                 System.out.println(ingredient);
             }
+
+            // Close the scanner after use in the main method
+            scanner.close();
         }
     }
 
     // Function to get user input for available ingredients
     public static Set<String> getUserIngredients() {
-        Scanner scanner = new Scanner(System.in);
         Set<String> ingredients = new HashSet<>();
+        Scanner scanner = new Scanner(System.in);  // Declare scanner here
 
         System.out.println("Enter the ingredients you have (type 'done' to stop):");
         while (true) {
@@ -132,6 +135,8 @@ public class RecipeFinder {
             }
             ingredients.add(ingredient);
         }
+
+        // Don't close the scanner here to prevent closing System.in prematurely
         return ingredients;
     }
 
