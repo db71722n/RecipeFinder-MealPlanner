@@ -2,7 +2,7 @@ import java.util.*;
 
 public class RecipeFinder {
 
-    // Recipe class to store recipe details
+    // recipe class to store recipe details
     static class Recipe {
         String name;
         List<String> ingredients;
@@ -22,7 +22,7 @@ public class RecipeFinder {
 
     // Main RecipeFinder class
     public static void main(String[] args) {
-        // Initialize recipes
+        // initialize recipes
         Map<String, Recipe> recipeDatabase = new HashMap<>();
         recipeDatabase.put("Pancakes", new Recipe("Pancakes", Arrays.asList("flour", "eggs", "milk", "sugar", "baking powder", "butter", "vanilla extract"), "Breakfast"));
         recipeDatabase.put("Scrambled Eggs", new Recipe("Scrambled Eggs", Arrays.asList("eggs", "milk", "butter", "salt", "pepper"), "Breakfast"));
@@ -57,10 +57,10 @@ public class RecipeFinder {
         recipeDatabase.put("Vegetable Curry", new Recipe("Vegetable Curry", Arrays.asList("mixed vegetables", "coconut milk", "curry powder", "garlic", "onion", "ginger"), "Dinner"));
         recipeDatabase.put("Pork Schnitzel", new Recipe("Pork Schnitzel", Arrays.asList("pork chops", "breadcrumbs", "eggs", "flour", "lemon", "butter"), "Dinner"));
 
-        // User input for available ingredients
+        // user input for available ingredients
         Set<String> availableIngredients = getUserIngredients();
 
-        // Suggest recipes based on available ingredients using a PriorityQueue
+        // suggest recipes based on available ingredients using a PriorityQueue
         PriorityQueue<Recipe> suggestedRecipes = suggestRecipes(recipeDatabase, availableIngredients);
 
         if (suggestedRecipes.isEmpty()) {
@@ -74,7 +74,7 @@ public class RecipeFinder {
                 System.out.println(suggestedRecipeList.size() + ". " + recipe);
             }
 
-            // Ask user to select recipes for the meal plan
+            // ask user to select recipes for the meal plan
             List<Recipe> mealPlan = new ArrayList<>();
             Scanner scanner = new Scanner(System.in);  // Declare once and use in main method
             System.out.println("\nPlease select the recipes you'd like to add to your meal plan.");
@@ -101,32 +101,32 @@ public class RecipeFinder {
                 }
             }
 
-            // Generate a shopping list for missing ingredients
+            // generate a shopping list for missing ingredients
             Set<String> shoppingList = generateShoppingList(mealPlan, availableIngredients);
 
-            // Display the selected meal plan
-            System.out.println("\nMeal Plan:");
+            // display selected meal plan
+            System.out.println("\nYour Meal Plan:");
             for (Recipe recipe : mealPlan) {
                 System.out.println(recipe);
             }
 
-            // Display shopping list for missing ingredients
-            System.out.println("\nShopping List (missing ingredients):");
+            // display shopping list for missing ingredients
+            System.out.println("\nShopping List (missing ingredients you need):");
             for (String ingredient : shoppingList) {
                 System.out.println(ingredient);
             }
 
-            // Close the scanner after use in the main method
+            // close scanner
             scanner.close();
         }
     }
 
-    // Function to get user input for available ingredients
+    // get user input for available ingredients
     public static Set<String> getUserIngredients() {
         Set<String> ingredients = new HashSet<>();
         Scanner scanner = new Scanner(System.in);  // Declare scanner here
 
-        System.out.println("Enter the ingredients you have (type 'done' to stop):");
+        System.out.println("Please enter the ingredients you have one at a time (type 'done' when finished):");
         while (true) {
             System.out.print("Ingredient: ");
             String ingredient = scanner.nextLine().trim().toLowerCase();
@@ -136,11 +136,11 @@ public class RecipeFinder {
             ingredients.add(ingredient);
         }
 
-        // Don't close the scanner here to prevent closing System.in prematurely
+        // didn't close the scanner here to prevent closing System.in prematurely
         return ingredients;
     }
 
-    // Function to suggest recipes based on available ingredients
+    // suggest recipes based on available ingredients
     public static PriorityQueue<Recipe> suggestRecipes(Map<String, Recipe> recipeDatabase, Set<String> availableIngredients) {
         PriorityQueue<Recipe> queue = new PriorityQueue<>((r1, r2) -> {
             int r1Matches = countMatchingIngredients(r1, availableIngredients);
@@ -157,7 +157,7 @@ public class RecipeFinder {
         return queue;
     }
 
-    // Check if a recipe has any matching ingredients
+    // check if a recipe has any matching ingredients
     public static boolean hasMatchingIngredients(Recipe recipe, Set<String> availableIngredients) {
         for (String ingredient : recipe.ingredients) {
             if (availableIngredients.contains(ingredient)) {
@@ -167,7 +167,7 @@ public class RecipeFinder {
         return false;
     }
 
-    // Count matching ingredients between a recipe and the available ingredients
+    // count matching ingredients between a recipe and the available ingredients
     public static int countMatchingIngredients(Recipe recipe, Set<String> availableIngredients) {
         int matchCount = 0;
         for (String ingredient : recipe.ingredients) {
@@ -178,7 +178,7 @@ public class RecipeFinder {
         return matchCount;
     }
 
-    // Function to generate a shopping list for missing ingredients
+    // generate a shopping list for missing ingredients
     public static Set<String> generateShoppingList(List<Recipe> mealPlan, Set<String> availableIngredients) {
         Set<String> shoppingList = new HashSet<>();
         
