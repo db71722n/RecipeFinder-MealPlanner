@@ -1,5 +1,3 @@
-package RecipeFinder;
-
 import java.util.Set;
 
 public class Recipe {

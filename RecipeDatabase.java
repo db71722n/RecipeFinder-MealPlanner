@@ -11,14 +11,14 @@ public class RecipeDatabase {
     }
 
     // Method to load recipes from a JSON file
-    public boolean loadRecipes(String filePath) {
+    public void loadRecipes(String filePath) {
         try (Reader reader = new FileReader(filePath)) {
             JsonArray jsonArray = JsonParser.parseReader(reader).getAsJsonArray();
 
             for (JsonElement recipeElement : jsonArray) {
                 JsonObject recipeObject = recipeElement.getAsJsonObject();
-                String name = recipeObject.get("recipeName").getAsString();
-                String mealType = recipeObject.get("mealType").getAsString();
+                String name = recipeObject.get("recipeName").getAsString();  // Match JSON key
+                String mealType = recipeObject.get("mealType").getAsString(); // Match JSON key
                 Set<String> ingredients = new HashSet<>();
 
                 JsonArray ingredientsArray = recipeObject.getAsJsonArray("ingredients");
@@ -26,14 +26,13 @@ public class RecipeDatabase {
                     ingredients.add(ingredientElement.getAsString());
                 }
 
+                // Create a new Recipe object
                 Recipe recipe = new Recipe(name, ingredients, mealType);
                 recipes.add(recipe);
             }
-            return true;
 
         } catch (IOException | JsonSyntaxException e) {
-            System.out.println("Error loading recipes: " + e.getMessage());
-            return false;
+            e.printStackTrace();
         }
     }
 
@@ -42,9 +41,9 @@ public class RecipeDatabase {
         recipes.add(recipe);
     }
 
-    // Method to sort recipes by meal type
+    // Method to sort recipes by meal type (category in your Recipe class)
     public List<Recipe> sortByMealType() {
-        recipes.sort(Comparator.comparing(Recipe::getCategory)); // Meal type -> Category
+        recipes.sort(Comparator.comparing(Recipe::getCategory)); // Meal type is stored as category
         return recipes;
     }
 
@@ -60,18 +59,16 @@ public class RecipeDatabase {
     }
 
     // Method to save the recipes back to the JSON file
-    public boolean saveRecipes(String filePath) {
+    public void saveRecipes(String filePath) {
         try (Writer writer = new FileWriter(filePath)) {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             gson.toJson(recipes, writer);
-            return true;
         } catch (IOException e) {
-            System.out.println("Error saving recipes: " + e.getMessage());
-            return false;
+            e.printStackTrace();
         }
     }
 
-    // Get all recipes
+    // Get all recipes (for testing purposes)
     public List<Recipe> getRecipes() {
         return recipes;
     }
