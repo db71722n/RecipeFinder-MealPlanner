@@ -1,0 +1,34 @@
+name: Reproducible build
+
+on:
+  push:
+    branches:
+      - main
+      - 'releases/**'
+  pull_request:
+    branches:
+      - '*'
+
+env:
+  DEVELOCITY_ACCESS_KEY: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
+
+jobs:
+  check_build_reproducibility:
+    name: 'Check build reproducibility'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+      with:
+        fetch-depth: 1
+    - name: Restore Gradle cache and display toolchains
+      uses: ./.github/actions/run-gradle
+      with:
+        encryptionKey: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
+        arguments: |
+          --quiet \
+          --configuration-cache
+    - name: Build and compare checksums
+      shell: bash
+      run: |
+        ./gradle/scripts/checkBuildReproducibility.sh

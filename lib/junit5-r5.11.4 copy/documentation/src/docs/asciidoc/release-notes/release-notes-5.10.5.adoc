@@ -1,0 +1,33 @@
+[[release-notes-5.10.5]]
+== 5.10.5
+
+*Date of Release:* October 4, 2024
+
+*Scope:* Bug fixes and enhancements since 5.10.4
+
+For a complete list of all _closed_ issues and pull requests for this release, consult the
+link:{junit5-repo}+/milestone/83?closed=1+[5.10.5] milestone page in the JUnit repository
+on GitHub.
+
+
+[[release-notes-5.10.5-junit-platform]]
+=== JUnit Platform
+
+[[release-notes-5.10.5-junit-platform-bug-fixes]]
+==== Bug Fixes
+
+* Fix regression in parallel execution that was introduced in 5.10.4 regarding global
+  read-write locks. When such a lock was declared on descendants of top-level nodes in the
+  test tree, such as Cucumber scenarios, test execution failed.
+
+
+[[release-notes-5.10.5-junit-jupiter]]
+=== JUnit Jupiter
+
+No changes.
+
+
+[[release-notes-5.10.5-junit-vintage]]
+=== JUnit Vintage
+
+No changes.

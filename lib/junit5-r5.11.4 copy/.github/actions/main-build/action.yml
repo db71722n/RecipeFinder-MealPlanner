@@ -1,0 +1,18 @@
+name: Main build
+description: Sets up JDKs and runs Gradle
+inputs:
+  arguments:
+    required: true
+    description: Gradle arguments
+    default: :platform-tooling-support-tests:test build --configuration-cache
+  encryptionKey:
+    required: true
+    description: Gradle cache encryption key
+runs:
+  using: "composite"
+  steps:
+    - uses: ./.github/actions/setup-test-jdk
+    - uses: ./.github/actions/run-gradle
+      with:
+        arguments: ${{ inputs.arguments }}
+        encryptionKey: ${{ inputs.encryptionKey }}

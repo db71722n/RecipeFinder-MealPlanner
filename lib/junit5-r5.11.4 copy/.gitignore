@@ -1,0 +1,34 @@
+# Gradle
+.gradle
+build
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Eclipse
+.classpath
+.settings/
+.project
+/bin/
+/*/bin
+/gradle/plugins/*/bin
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+*.uml
+**/.idea/*
+!/.idea/icon.png
+!/.idea/vcs.xml
+/out/
+/*/out/
+
+# Misc
+*.log
+*.graphml
+coverage.db*
+.metadata
+/.sdkmanrc
+
+checksums*
